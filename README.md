@@ -101,7 +101,7 @@ If you don't know how to update the coprocessors firmware, click [here](https://
 ### **Follow the next steps to learn how to use the application P2Pserver**
 
 **Step 1.** Power on the STM32WB board with the Ota application flashed in and activate the bluetooth® on your machine.   
-**Step 2.** Open [this]([https://stm32-hotspot.github.io/STM32-Web-Bluetooth-App-Interfaces](https://applible.github.io/Web_Bluetooth_App/) "[https://stm32-hotspot.github.io/STM32-Web-Bluetooth-App-Interfaces](https://applible.github.io/Web_Bluetooth_App/)") web page in your browser.  
+**Step 2.** Open [this](https://applible.github.io/Web_Bluetooth_App "https://applible.github.io/Web_Bluetooth_App") web page in your browser.  
 **Step 3.** Click on the connect button then select P2PSRV1 in the device list and click pair.   
 ![Step 3](illustrations/picture0.png "Step 3")  
 ![Step 3](illustrations/picture1.png "Step 3")  
@@ -129,7 +129,7 @@ If you don't know how to update the coprocessors firmware, click [here](https://
 
 ### **Follow the next steps to learn how to use the application Firmware Update Over The Air.**  
 **Step 1.** Power on the STM32WB board with the Ota application flashed in and activate the bluetooth® on your machine.   
-**Step 2.** Open [this](https://stm32-hotspot.github.io/STM32-Web-Bluetooth-App-Interfaces "https://stm32-hotspot.github.io/STM32-Web-Bluetooth-App-Interfaces") web page in your browser.  
+**Step 2.** Open [this](https://applible.github.io/Web_Bluetooth_App "https://applible.github.io/Web_Bluetooth_App") web page in your browser.  
 **Step 3.** Click on the connect button then select STM_OTA in the device list and click pair.  
 *You are now connected*  
 **Step 4.** Select the correct STM32WB device by clicking on the radio button.  
@@ -166,7 +166,7 @@ If you don't know how to update the coprocessors firmware, click [here](https://
 ### **Follow the next steps to learn how to use the application HeartRate**
 
 **Step 1.** Power on the STM32WB board with the HeartRate application flashed in and activate the bluetooth® on your machine.   
-**Step 2.** Open [this](https://stm32-hotspot.github.io/STM32-Web-Bluetooth-App-Interfaces "https://stm32-hotspot.github.io/STM32-Web-Bluetooth-App-Interfaces") web page in your browser.  
+**Step 2.** Open [this](https://applible.github.io/Web_Bluetooth_App "https://applible.github.io/Web_Bluetooth_App") web page in your browser.  
 **Step 3.** Click on the connect button then select HRSTM in the device list and click pair.  
 *You are now connected*  
 **Step 4.** Click on HeartRate to show the interface and **don't hesitate to read the tooltips**.  
@@ -193,7 +193,7 @@ If you don't know how to update the coprocessors firmware, click [here](https://
 ### **Follow the next steps to learn how to use the application Data Throughput**
 
 **Step 1.** Power on the STM32WB board with the Data Throughput application flashed in and activate the bluetooth® on your machine.   
-**Step 2.** Open [this](https://stm32-hotspot.github.io/STM32-Web-Bluetooth-App-Interfaces "https://stm32-hotspot.github.io/STM32-Web-Bluetooth-App-Interfaces") web page in your browser.  
+**Step 2.** Open [this](https://applible.github.io/Web_Bluetooth_App/ "https://applible.github.io/Web_Bluetooth_App") web page in your browser.  
 **Step 3.** Click on the connect button then select DT_SERVER in the device list and click pair.  
 *You are now connected*  
 **Step 4.** Click on Data Throughput to show the interface and **don't hesitate to read the tooltips**.  
