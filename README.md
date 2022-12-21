@@ -1,64 +1,50 @@
 # **ST Web Bluetooth App Interfaces**
 
-# **Introduction**
+***
 
-## WBA vs WB
-
-<p align="center">
-  <img alt="Dark" src="illustrations/NUCLEO-WBA52CG.jpg" width="45%">
-  &nbsp; &nbsp; &nbsp; &nbsp;
-  <img alt="Light" src="illustrations/p-nucleo-wb55.jpg" title="test" width="45%">
-</p>
+## **What is Web Bluetooth ?**
+The Web Bluetooth API is a new specification that allows us to communicate directly to Bluetooth Low Energy devices from the browser. 
 
 
-<table>
-<tr>
-<th> WBA </th>
-<th> WB </th>
-</tr>
-<tr>
-<td>
+## **Browser compatibility with the API Web Bluetooth®.**
 
-- [Web app for WBA](https://AppliBLE.github.io/Web_Bluetooth_App_WBA "https://AppliBLE.github.io/Web_Bluetooth_App").
+On a **desktop** computer: Chrome, Edge and Opera browsers are compatible.  
+On a **smartphone** device: Chrome android is the only browser compatible.  
+See https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API documentation.
+You may need to enable experimental web platform features in your browser preference.
 
-</td>
-<td>
+***
 
-- [Web app for WB](https://AppliBLE.github.io/Web_Bluetooth_App_WB "https://AppliBLE.github.io/Web_Bluetooth_App").
+# **Usage**
 
-</td>
-</tr>
-</table>
+Two github pages hosting the web app are available:
+-   [Web Bluetooth **WBA**](https://AppliBLE.github.io/Web_Bluetooth_App_WBA "https://AppliBLE.github.io/Web_Bluetooth_App_WBA").
+-   [Web Bluetooth **WB**](https://AppliBLE.github.io/Web_Bluetooth_App_WB "https://AppliBLE.github.io/Web_Bluetooth_App_WB").
+  
+No installation is required to use it this way.
 
+You can host locally the server to update the source code, see [*Development mode*](#development-mode).
 
+If you are unsure which of the two pages to choose, see [*WBA or WB*](#wba-or-wb).
 
+***
 
+# **Development mode**
 
+To run the project in development mode, first be sure npm (node package manager) is installed on your machine.  
+Open a terminal and write the following command:  
+`npm -v` 
 
-![](illustrations/p-nucleo-wb55.jpg) 
-![](illustrations/NUCLEO-WBA52CG.jpg) 
+If npm is not installed on your machine, install [Node.js](https://nodejs.org/en/download/ "https://nodejs.org/en/download/") then clone this repo and go to its root directory then proceed the following commands in a terminal:  
 
+To install all the dependencies:  
+`npm install`
 
+To start the application:  
+`npm start`
 
-[NUCLEO-WBA52](https://www.st.com/en/evaluation-tools/p-nucleo-wb55.html "https://www.st.com/en/evaluation-tools/p-nucleo-wb55.html")
+Then open a compatible browser and go to http://localhost:3000
 
-## STM32 WB
+***
 
-[P-NUCLEO-WB55](https://www.st.com/en/evaluation-tools/p-nucleo-wb55.html "https://www.st.com/en/evaluation-tools/p-nucleo-wb55.html")
-
-<p float="left">
-  <img src="illustrations/p-nucleo-wb55.jpg" width="100" />
-  <img src="illustrations/NUCLEO-WBA52CG.jpg" width="100" /> 
-  <img src="/img3.png" width="100" />
-</p>
-
-
-
-### Overview
-The innovative architecture of STM32WB MCUs is based on two totally independent cores, optimized for real-time execution (radio-related software processing). It enables flexible resource use and efficient power management.
-
-Based on our ultra-low power STM32L4 microcontrollers, the STM32WB MCU series provides the same digital and analog peripherals suitable for applications requiring an extended battery life and complex functionalities.
-
-- STM32WBx5 wireless microcontrollers, available in multiple packages and different memory sizes, provide users with enhanced performance and flexibility to address different levels of complexity.
-- The STM32WBx0 Value Line focuses on the essentials and offers a feature-optimized, cost-effective solution for developers.
-- The STM32WBxM line of modules offers the same feature set as the STM32WBx5 line. The module integrates the full reference design in a small LGA86 package (7 x 11.3 mm) and offers a wide certification coverage
+# **WBA or WB**
