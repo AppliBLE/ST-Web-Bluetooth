@@ -1,9 +1,14 @@
 {
   "files": {
-    "main.js": "/ST-Web-Bluetooth/static/js/main.31d6cfe0.js",
-    "index.html": "/ST-Web-Bluetooth/index.html"
+    "main.css": "/ST-Web-Bluetooth/static/css/main.3d83e6f6.css",
+    "main.js": "/ST-Web-Bluetooth/static/js/main.4b11536a.js",
+    "static/media/st-logo.svg": "/ST-Web-Bluetooth/static/media/st-logo.01d65641d9828fd6847ef785b4019063.svg",
+    "index.html": "/ST-Web-Bluetooth/index.html",
+    "main.3d83e6f6.css.map": "/ST-Web-Bluetooth/static/css/main.3d83e6f6.css.map",
+    "main.4b11536a.js.map": "/ST-Web-Bluetooth/static/js/main.4b11536a.js.map"
   },
   "entrypoints": [
-    "static/js/main.31d6cfe0.js"
+    "static/css/main.3d83e6f6.css",
+    "static/js/main.4b11536a.js"
   ]
 }
