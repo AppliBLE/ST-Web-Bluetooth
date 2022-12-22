@@ -27,7 +27,7 @@ const P2Pserver = (props) => {
   let notifyCharacteristic;
   let ReadWriteCharacteristic;
   let rebootCharacteristic;
-
+  
   // Filtering the different datathroughput characteristics
   props.allCharacteristics.map(element => {
     switch (element.characteristic.uuid) {
@@ -45,6 +45,8 @@ const P2Pserver = (props) => {
         console.log("# No characteristics found..");
     }
   });
+  
+  document.getElementById("readmeInfo").style.display = "none";
 
   // Write button handler
   async function onWriteButtonClick() {
@@ -67,7 +69,6 @@ const P2Pserver = (props) => {
     console.log(statusWord);
     document.getElementById('readLabel').innerHTML = "0x" + statusWord.toString();
     createLogElement(statusWord, 1, "P2Pserver READ");
-
   }
 
   // Enable Light image handler
@@ -168,19 +169,6 @@ const P2Pserver = (props) => {
         <div className="container">
           {rebootCharacteristic === undefined ? null : <Reboot rebootCharacteristic={rebootCharacteristic}></Reboot>}    
           <div className='row justify-content-center mt-3'>
-            <div className='d-grid col-xs-6 col-sm-6 col-md-4 col-lg-4 m-2'>
-              <div className='d-flex flex-row'>
-              <button className="defaultButton w-100" type="button" onClick={onNotifyButtonClick} id="notifyButton">Notify OFF</button>
-                <span>
-                  <OverlayTrigger
-                    trigger={['hover', 'focus']}
-                    placement="bottom"
-                    overlay={popoverNotifyButton}>
-                    <img className="iconInfo" src={iconInfo}></img>
-                  </OverlayTrigger>
-                </span>
-              </div>              
-            </div>
             <div className='col-xs-6 col-sm-6 col-md-4 col-lg-4 m-2'>
               <div className='d-flex flex-row'>
               <button className="defaultButton w-100" type="button" onClick={onEnableLightClick} id="enableLightButton">Light OFF</button>
@@ -194,6 +182,20 @@ const P2Pserver = (props) => {
                 </span>
               </div>
             </div>
+            <div className='d-grid col-xs-6 col-sm-6 col-md-4 col-lg-4 m-2'>
+              <div className='d-flex flex-row'>
+              <button className="defaultButton w-100" type="button" onClick={onNotifyButtonClick} id="notifyButton">Notify OFF</button>
+                <span>
+                  <OverlayTrigger
+                    trigger={['hover', 'focus']}
+                    placement="bottom"
+                    overlay={popoverNotifyButton}>
+                    <img className="iconInfo" src={iconInfo}></img>
+                  </OverlayTrigger>
+                </span>
+              </div>              
+            </div>
+            
           </div>
           <div className='row justify-content-center mt-3'>
             <div className='col-xs-6 col-sm-6 col-md-4 col-lg-4 m-2'>

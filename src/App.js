@@ -18,6 +18,7 @@ import Header from './components/Header';
 import DataThroughput from './onglets/DataThroughput';
 import HeartRate from './onglets/HeartRate';
 import P2Pserver from './onglets/P2Pserver';
+import P2Prouter from './onglets/P2Prouter';
 import Ota from './onglets/Ota';
 import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
 import './styles/style.css'
@@ -34,18 +35,20 @@ const App = () => {
   listItems = [];
   
 allServices.map(service => {
-
-  if(service.service.uuid === "0000fe80-8e22-4541-9d4c-21edae82ed19"){
-      listItems.push(<li><Link to="/DT">Data Throughput</Link></li>);
+  if(service.service.uuid === "0000fe80-cc7a-482a-984a-7f2ed5b3e58f"){
+    listItems.push(<li className="liProfile"><Link to="/DT">Data Throughput</Link></li>);
   }
   if(service.service.uuid === "0000180d-0000-1000-8000-00805f9b34fb"){
-      listItems.push(<li><Link to="/HR">Heart Rate</Link></li>);
+    listItems.push(<li className="liProfile"><Link to="/HR">Heart Rate</Link></li>);
   }
   if(service.service.uuid === "0000fe40-cc7a-482a-984a-7f2ed5b3e58f"){
-      listItems.push(<li><Link to="/P2P">P2P Server</Link></li>);
+    listItems.push(<li className="liProfile"><Link to="/P2P">P2P Server</Link></li>);
+  }
+  if(service.service.uuid === "0000feb0-cc7a-482a-984a-7f2ed5b3e58f"){
+    listItems.push(<li className="liProfile"><Link to="/P2P_ROUTER">P2P Router</Link></li>);
   }
   if(service.service.uuid === "0000fe20-cc7a-482a-984a-7f2ed5b3e58f"){
-      listItems.push(<li><Link to="/OTA">Firmware Update Over The Air</Link></li>);
+    listItems.push(<li className="liProfile"><Link to="/OTA">Firmware Update Over The Air</Link></li>);
   }
 });
 
@@ -54,7 +57,7 @@ allServices.map(service => {
     <BrowserRouter>
       <div>
         <Header setIsDisconnected={setIsDisconnected} setAllServices={setAllServices} setAllCharacteristics={setAllCharacteristics}></Header>
-          <ul>{listItems}</ul>
+          <ul className="ulProfile">{listItems}</ul>
         {/* if device isDisconnected do render nothing more, else render component services contain in onglets[] */}
         {/* {isDisconnected ? null : onglets} */}
         <div className="main-route-place">
@@ -62,10 +65,11 @@ allServices.map(service => {
             <Route path="/"/>
             <Route path="*"/>
             {/* If isDisconnected === true, element = null eslse element = <component></component> */}
+            <Route path="/DT" element={isDisconnected ? null : <DataThroughput allCharacteristics={allCharacteristics}></DataThroughput>} />
             <Route path="/HR" element={isDisconnected ? null : <HeartRate allCharacteristics={allCharacteristics}></HeartRate>} />
             <Route path="/P2P" element={isDisconnected ? null : <P2Pserver allCharacteristics={allCharacteristics}></P2Pserver>} />
+            <Route path="/P2P_ROUTER" element={isDisconnected ? null : <P2Prouter allCharacteristics={allCharacteristics}></P2Prouter>} />
             <Route path="/OTA" element={isDisconnected ? null : <Ota allCharacteristics={allCharacteristics}></Ota>} />
-            <Route path="/DT" element={isDisconnected ? null : <DataThroughput allCharacteristics={allCharacteristics}></DataThroughput>} />
           </Routes>
           </div>
       </div>

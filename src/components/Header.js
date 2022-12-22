@@ -14,75 +14,138 @@
 //  *
 //  ******************************************************************************
 
+
 import React, { useState } from "react";
 import logoST from '../images/st-logo.svg';
 
 var myDevice;
+let showAllDevices = false;
 
 const Header = (props) => {
 
     function connection() {
         console.log('Requesting Bluetooth Device...');
-        myDevice = navigator.bluetooth.requestDevice({
-            filters: 
-            [{
-                name: 'P2PSRV1'
-            }, {
-                name: "HRSTM"
-            }, {
-                name: "DT_SERVER"
-            }, {
-                name: "STM_OTA"
-            }, {
-                name: "MyCST"
-            }],
-            optionalServices: ['0000fe40-cc7a-482a-984a-7f2ed5b3e58f', '0000180d-0000-1000-8000-00805f9b34fb','0000fe80-8e22-4541-9d4c-21edae82ed19','0000fe20-cc7a-482a-984a-7f2ed5b3e58f'] // service uuid of [P2P service, Heart Rate service, DataThroughput, Ota]
-        })
-            .then(device => { 
-                myDevice = device;
-                myDevice.addEventListener('gattserverdisconnected', onDisconnected);
-                return device.gatt.connect();
-            })
-            .then(server => {
-                return server.getPrimaryServices();
-            })
-            .then(services => {
-                console.log('HEADER - Getting Characteristics...');
-                let queue = Promise.resolve();
-                services.forEach(service => {
-                    console.log(service);
-                    createLogElement(service, 3, 'SERVICE')
-                    props.setAllServices((prevService) => [
-                        ...prevService,
-                        {
-                            service
-                        },
-                    ]);
-                    queue = queue.then(_ => service.getCharacteristics()
-                        .then(characteristics => {
-                            console.log(characteristics);
-                            console.log('HEADER - > Service: ' + service.device.name + ' - ' + service.uuid);
-                            characteristics.forEach(characteristic => {
-                                props.setAllCharacteristics((prevChar) => [
-                                    ...prevChar,
-                                    {
-                                        characteristic
-                                    },
-                                ]);
-                                console.log('HEADER - >> Characteristic: ' + characteristic.uuid + ' ' + getSupportedProperties(characteristic));
-                                createLogElement(characteristic, 4 , 'CHARACTERISTIC')
-                            });
-                        }));
+        if(showAllDevices == false){
+            console.log("Bluetooth Device Filter is ON");
+            myDevice = navigator.bluetooth.requestDevice({
+                filters: 
+                [{
+                    namePrefix: "DT_WBA"        // BLE_DataThroughput
+                }, {
+                    namePrefix: "HT_"            // BLE_HealthThermometer
+                }, {
+                    namePrefix: "HR_"            // BLE_HeartRate
+                }, {
+                    namePrefix: "P2PS_"           // P2P : Server 
+                }, {
+                    namePrefix: "P2PR_"           // P2P : Router
+                }, {
+                    namePrefix: "P2PSWBA"        // P2P : Server Ext
+                }, {
+                    namePrefix: "DT_WBA"        // BLE_DataThroughput
+                }],
+
+                optionalServices: ['0000fe40-cc7a-482a-984a-7f2ed5b3e58f', '0000180d-0000-1000-8000-00805f9b34fb','0000fe80-cc7a-482a-984a-7f2ed5b3e58f','0000fe80-8e22-4541-9d4c-21edae82fe80','0000fe20-cc7a-482a-984a-7f2ed5b3e58f', '0000feb0-cc7a-482a-984a-7f2ed5b3e58f'] // service uuid of [P2P service, Heart Rate service, DataThroughput, Ota]
+            })  
+                .then(device => { 
+                    myDevice = device;
+                    myDevice.addEventListener('gattserverdisconnected', onDisconnected);
+                    return device.gatt.connect();
+                })
+            
+                .then(server => {
+                    return server.getPrimaryServices();
+                })
+                
+                .then(services => {
+                    console.log('HEADER - Getting Characteristics...');
+                    let queue = Promise.resolve();
+                    services.forEach(service => {
+                        console.log(service);
+                        createLogElement(service, 3, 'SERVICE')
+                        props.setAllServices((prevService) => [
+                            ...prevService,
+                            {
+                                service
+                            },
+                        ]);
+                        queue = queue.then(_ => service.getCharacteristics()
+                            .then(characteristics => {
+                                console.log(characteristics);
+                                console.log('HEADER - > Service: ' + service.device.name + ' - ' + service.uuid);
+                                characteristics.forEach(characteristic => {
+                                    props.setAllCharacteristics((prevChar) => [
+                                        ...prevChar,
+                                        {
+                                            characteristic
+                                        },
+                                    ]);
+                                    console.log('HEADER - >> Characteristic: ' + characteristic.uuid + ' ' + getSupportedProperties(characteristic));
+                                    createLogElement(characteristic, 4 , 'CHARACTERISTIC')
+                                });
+                            }));
+                    });
+                    let buttonConnect = document.getElementById('connectButton');
+                    buttonConnect.innerHTML = "Connected";
+                    buttonConnect.disabled = true;
+                    props.setIsDisconnected(false);
+                    return queue;
+                })
+                .catch(error => {
+                    console.error(error);
                 });
-                let buttonConnect = document.getElementById('connectButton');
-                buttonConnect.innerHTML = "Connected";
-                buttonConnect.disabled = true;
-                props.setIsDisconnected(false);
-                return queue;
-            })
-            .catch(error => {
-                console.error(error);
-            });
+            }
+            else {
+                console.log("Bluetooth Device Filter is OFF");
+                myDevice = navigator.bluetooth.requestDevice({
+                    acceptAllDevices: true,
+                   })
+                    .then(device => { 
+                        myDevice = device;
+                        myDevice.addEventListener('gattserverdisconnected', onDisconnected);
+                        return device.gatt.connect();
+                    })
+                    .then(server => {
+                        return server.getPrimaryServices();
+                    })
+                    .then(services => {
+                        console.log('HEADER - Getting Characteristics...');
+                        let queue = Promise.resolve();
+                        services.forEach(service => {
+                            console.log(service);
+                            createLogElement(service, 3, 'SERVICE')
+                            props.setAllServices((prevService) => [
+                                ...prevService,
+                                {
+                                    service
+                                },
+                            ]);
+                            queue = queue.then(_ => service.getCharacteristics()
+                                .then(characteristics => {
+                                    console.log(characteristics);
+                                    console.log('HEADER - > Service: ' + service.device.name + ' - ' + service.uuid);
+                                    characteristics.forEach(characteristic => {
+                                        props.setAllCharacteristics((prevChar) => [
+                                            ...prevChar,
+                                            {
+                                                characteristic
+                                            },
+                                        ]);
+                                        console.log('HEADER - >> Characteristic: ' + characteristic.uuid + ' ' + getSupportedProperties(characteristic));
+                                        createLogElement(characteristic, 4 , 'CHARACTERISTIC')
+                                    });
+                                }));
+                        });
+                        let buttonConnect = document.getElementById('connectButton');
+                        buttonConnect.innerHTML = "Connected";
+                        buttonConnect.disabled = true;
+                        props.setIsDisconnected(false);
+                        return queue;
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            }
         
     }
     
@@ -102,7 +165,7 @@ const Header = (props) => {
         document.getElementById('connectButton').disabled = false;
         props.setIsDisconnected(true);
         props.setAllServices([]);
-        document.location.href="/";
+        document.location.href="/Web_Bluetooth_App_WBA";
     }
 
     function onDisconnected() {
@@ -110,16 +173,22 @@ const Header = (props) => {
         document.getElementById('connectButton').disabled = false;
         props.setIsDisconnected(true);
         props.setAllServices([]);
-        document.location.href="/";
+        document.location.href="/Web_Bluetooth_App_WBA";
       }
     
+
+
+      
     return (
         <div className="container-fluid" id="header">
             <div className="container ">
                 <div className="row">
                     <div className="col-12">
-                        <img src={logoST} alt="logo st"></img>
+                        <img className="logoST" src={logoST} alt="logo st"></img>
                     </div>
+                </div>
+                <div className="textTitle">
+                    WBA
                 </div>
                 <div className="row mt-3">             
                     <div className="d-grid col-xs-12 col-sm-4 col-md-4 col-lg-4 p-2">
@@ -142,11 +211,39 @@ const Header = (props) => {
                             <div id="logPanel"></div>
                         </div>
                     </div>
+                    <div className="input-group mb-3">
+                    <label> Disable STM32 WBA Devices Filter &nbsp;</label> 
+                    <label class="containerCheckBox" onClick={checkBoxDeviceFilter}>
+                        <input type="checkbox"id="checkboxFilter" />
+                        <span class="checkmark"></span>
+                    </label>
+                    </div>
                 </div>
             </div>
-        </div>        
+        </div>
     );
 };
+
+
+
+
+
+
+
+function checkBoxDeviceFilter() {
+    // Get the checkbox
+    var checkBox = document.getElementById("checkboxFilter");
+    var inputSector = document.getElementById("nbSector");
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true){
+        showAllDevices = true;
+        console.log("Turn Off the bluetooth device Filter for the connection");
+    } else {
+        showAllDevices = false;
+        console.log("Turn ON the bluetooth device Filter for the connection");
+    }
+  }
+
 
 // Create a new element in the log panel
 export function createLogElement(logText, maxLevel, description) {

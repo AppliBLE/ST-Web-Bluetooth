@@ -131,7 +131,20 @@ const DataThroughput = (props) => {
     let dataToUpload = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
     // Filtering the different datathroughput characteristics
     props.allCharacteristics.map(element => {
+        
         switch (element.characteristic.uuid){
+            /*
+            case "0000fe81-8e22-4541-9d4c-21edae82fe81" : 
+                downloadNotifyCharacteristic = element;
+            break;
+            case "0000fe82-8e22-4541-9d4c-21edae82fe82" : 
+                writeCharacteristic = element;
+            break;
+            case "0000fe83-8e22-4541-9d4c-21edae82fe83" : 
+                uploadNotifyCharacteristic = element;
+            break;
+            */
+            
             case "0000fe81-8e22-4541-9d4c-21edae82ed19" : 
                 downloadNotifyCharacteristic = element;
             break;
@@ -145,6 +158,8 @@ const DataThroughput = (props) => {
                 console.log("# No characteristics find..");
         }
     });
+    
+    document.getElementById("readmeInfo").style.display = "none";
 
     async function uploadingData(){
         var encoder = new TextEncoder();
@@ -242,9 +257,9 @@ const DataThroughput = (props) => {
     }
 
     function notifHandlerDownload(event) {
-        // console.log("Download Notification Received");
+        //console.log("Download Notification Received"); 
         var buf = new Uint8Array(event.target.value.buffer);
-        // createLogElement(buf, 3, "DT DOWNLOAD NOTIFICATION RECEIVED");
+        //createLogElement(buf, 1, "DT DOWNLOAD NOTIFICATION RECEIVED");
         bytesReceivedDownload = bytesReceivedDownload + buf.byteLength;
     }    
 

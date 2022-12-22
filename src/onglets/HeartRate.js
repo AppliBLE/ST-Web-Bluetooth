@@ -31,7 +31,7 @@ const HeartRate = (props) => {
     let displayRebootPanel = "none";
     let heartRateDataSet = [];
     let heartRateTime = [];
-
+    
     let chartConfig = {
         type: "line",
         data: {
@@ -121,6 +121,8 @@ const HeartRate = (props) => {
                 console.log("# No characteristics find..");
         }
     });
+
+    document.getElementById("readmeInfo").style.display = "none";
 
     // read button handler
     async function onReadButtonClick() {

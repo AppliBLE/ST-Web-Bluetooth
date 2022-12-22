@@ -21,7 +21,7 @@ import iconInfo from '../images/iconInfo.svg';
 const Reboot = (props) => {
   let rebootCharacteristic = props.rebootCharacteristic;
   let fileContent;
-  let sectorLenght;
+  let sectorLenght = 4096;
 
   function showFile(e) {
     fileContent = e.target.files[0];
@@ -31,6 +31,7 @@ const Reboot = (props) => {
     createLogElement(fileContent, 3, "P2Pserver FILE INFORMATION");
   }
 
+  
 function onDeviceRadioButtonClick() {
   // Determine the lenght of sectors
   let selectedBoardOption = document.getElementsByName("selectBoard");
@@ -206,6 +207,8 @@ function indicationTimeout() {
     </Popover>
   );
 
+
+  // FOR WB
   return (
       <div className="accordion" id="accordionRebootPanel">
         <div className="accordion-item">
@@ -322,7 +325,7 @@ function indicationTimeout() {
                 </h3>
                 <div className="input-group">
                   <span className="input-group-text" id="sectorChoise">First sector address : 0x</span>
-                  <input type="text" className="form-control" placeholder="..." aria-describedby="sectorChoise" maxLength="4" id="sectorInput" defaultValue={"7000"}></input>
+                  <input type="text" className="form-control" placeholder="..." aria-describedby="sectorChoise" maxLength="5" id="sectorInput" defaultValue={"82000"}></input>
                 </div>
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="numberSectorChoise">Number of sectors to delete</span>
