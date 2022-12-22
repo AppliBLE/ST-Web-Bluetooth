@@ -20,10 +20,16 @@ div{
 }
 #header{
 	background-color: #dee2e6;
-	padding-bottom: 1em;
+	padding-bottom: 0em;
 }
 
 img {
+	margin: 5px;
+	width: 100%;
+	vertical-align: middle;
+}
+
+.logoST{
 	margin: 5px;
 	width: 16em;
 }
@@ -36,26 +42,58 @@ img {
 	height: 3em;
 }
 
+
+.justifyText {
+	text-align: justify;
+	text-justify: inter-word;
+}
+
+
+
 .fileInput {
 	background: rgb(73, 102, 129);
 }
 
 ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	background-color: #03234B;/* ST dark blue */
-	color: white;
-	font-family: sans-serif;
-	font-weight: bold;
-	transition-duration: 1s;
-  }
-  
-li {
-float: left;
+	list-style-type: disc;;
 }
 
+.ulProfile {
+    background-color: #03234b;
+    color: #fff;
+    font-family: sans-serif;
+    font-weight: 700;
+    list-style-type: none;
+    margin: 0;
+	margin-bottom: 0.5em;
+    overflow: hidden;
+    padding: 0;
+    transition-duration: 1s;
+}
+
+.liProfile {
+    float: left;
+}
+
+.liProfile a {
+    color: #fff;
+    display: block;
+    padding: 14px 16px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.liProfile a:hover {
+	transform: scale(1.05);
+	color: #3CB4E6;/* ST light blue */
+}
+
+li {
+    /*display: list-item;*/
+    text-align: -webkit-match-parent;
+}
+
+/*
 li a {
 display: block;
 color: white;
@@ -66,113 +104,23 @@ text-decoration: none;
 
 li a:hover {
 transform: scale(1.05);
-color: #3CB4E6;/* ST light blue */
+color: #3CB4E6;/* ST light blue 
+}*/
+
+
+
+
+.textTitle {    
+	margin: 2px;
+    text-align: center;
+    font-size: large;
+    font-weight: 900;
+    color: #03234B;
+    height: 1em;
 }
 
-#logPanel {
-	width: min-content;
-	position: absolute;
-    left: 0;
-    overflow: auto;
-	background-color: white;
-	height: -webkit-fill-available;
-	
-}
 
-.logElememt {
-	font-weight: bold;
-	margin-top: 5px;
-	background-color: white;
-	text-align: left;
-	float: left;
-	padding-left: 10px;
-	border-bottom: #3CB4E6 dotted 3px;
-	width: -webkit-fill-available;
-}
-
-.card-text {
-	text-align: left;
-}
-
-.iconInfo {
-	height: auto;
-	width: 28px; 
-	float: right; 
-	margin: 5px;
-}
-
-.defaultButton{
-	height: 38px;
-	border-radius: 2px;
-	background-color: #03234B;
-	border: #03234B solid 1px;
-	color: white;
-	font-family: Arial, sans-serif;
-}
-
-.defaultButton.form-control {
-	height: 38px;
-	border-radius: 0px;
-	background-color: #03234B;
-	border: #03234B solid 1px;
-	color: white;
-	font-family: Arial, sans-serif;
-}
-
-.defaultButton:hover {
-	border: #E6007E solid 1px;
-	background-color: #E6007E;
-}
-
-.defaultButton:disabled {
-	color: white;
-	background-color: #425a78;
-	border: #425a78 solid 1px;
-}
-  
-.defaultButton:disabled, .defaultButton.disabled, fieldset:disabled .defaultButton {
-	pointer-events: none;
-	opacity: 0.65;
-}
-
-.custom-bg-danger {
-	background-color: #49B170;
-}
-
-.dangerButton {
-	height: 38px;
-	border-radius: 2px;
-	background-color: #49B170;
-	border: #49B170 solid 1px;
-	color: white;
-	font-family: Arial, sans-serif;
-}
-
-.dangerButton:hover {
-	background-color: #04572F;
-	border: #04572F solid 1px;
-}
-
-.secondaryButton {
-	height: 38px;
-	border-radius: 2px;
-	background-color: #74747c;
-	border: #74747c solid 1px;
-	color: white;
-	font-family: Arial, sans-serif;
-}
-
-.secondaryButton:hover {
-	background-color: #464650;
-	border: #464650 solid 1px;
-}
-
-.secondaryButton:disabled {
-	color: white;
-	background-color: #a2a2a7;
-	border: #a2a2a7 solid 1px;
-}
-
-#formFile {
-	content: "Pick file";
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
 }

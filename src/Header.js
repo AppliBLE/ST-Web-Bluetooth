@@ -1,5 +1,5 @@
 // ******************************************************************************
-// * @file    App.js
+// * @file    Header.js
 // * @author  MCD Application Team
 // *
 //  ******************************************************************************
@@ -13,30 +13,24 @@
 //  * If no LICENSE file comes with this software, it is provided AS-IS.
 //  *
 //  ******************************************************************************
-import React, { useState } from 'react';
-import Header from './Header';
-import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
-import './styles/style.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import bootstrap from 'bootstrap';
+
+import React, { useState } from "react";
+import logoST from './images/st-logo.svg';
 
 
+const Header = (props) => {
 
-const App = () => {
+    return (
+        <div className="container-fluid" id="header">
+            <div className="container ">
+                <div className="row">
+                    <div className="col-12">
+                        <img className="logoST" src={logoST}></img>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    );
+}; 
 
-
-
-
-  return (
-    <BrowserRouter>
-      <div>
-        <Header ></Header>
-          
-      </div>
-    </BrowserRouter>
-    
-
-  );
-}
-
-export default App;
+export default Header;
