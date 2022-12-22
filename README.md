@@ -18,14 +18,14 @@ You may need to enable experimental web platform features in your browser prefer
 # **Usage**
 
 Two github pages hosting the web app are available:
--   [Web Bluetooth **WBA**](https://AppliBLE.github.io/Web_Bluetooth_App_WBA "https://AppliBLE.github.io/Web_Bluetooth_App_WBA").
--   [Web Bluetooth **WB**](https://AppliBLE.github.io/Web_Bluetooth_App_WB "https://AppliBLE.github.io/Web_Bluetooth_App_WB").
+-   [Web Bluetooth **STM32WBA**](https://AppliBLE.github.io/Web_Bluetooth_App_WBA "https://AppliBLE.github.io/Web_Bluetooth_App_WBA").
+-   [Web Bluetooth **STM32WB**](https://AppliBLE.github.io/Web_Bluetooth_App_WB "https://AppliBLE.github.io/Web_Bluetooth_App_WB").
   
 No installation is required to use it this way.
 
 You can host locally the server to update the source code, see [*Development mode*](#development-mode).
 
-If you are unsure which of the two pages to choose, see [*WBA or WB*](#wba-or-wb).
+If you are unsure which of the two pages to choose, see [*STM32WBA or STM32WB*](#wba-or-wb).
 
 ***
 
@@ -44,7 +44,3 @@ To start the application:
 `npm start`
 
 Then open a compatible browser and go to http://localhost:3000
-
-***
-
-# **WBA or WB**
