@@ -23,10 +23,6 @@ Two github pages hosting the web app are available:
   
 No installation is required to use it this way.
 
-You can host locally the server to update the source code, see [*Development mode*](#development-mode).
-
-If you are unsure which of the two pages to choose, see [*STM32WBA or STM32WB*](#wba-or-wb).
-
 ***
 
 # **Development mode**
