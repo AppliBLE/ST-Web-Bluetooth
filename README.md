@@ -1,9 +1,9 @@
-# **ST Web Bluetooth App Interfaces**
+# **ST Web Bluetooth® App Interfaces**
 
 ***
 
-## **What is Web Bluetooth ?**
-The Web Bluetooth API is a new specification that allows us to communicate directly to Bluetooth Low Energy devices from the browser. 
+## **What is Web Bluetooth® ?**
+The Web Bluetooth® API is a new specification that allows us to communicate directly to Bluetooth® Low Energy devices from the browser. 
 
 
 ## **Browser compatibility with the API Web Bluetooth®.**
@@ -18,10 +18,11 @@ You may need to enable experimental web platform features in your browser prefer
 # **Usage**
 
 Two github pages hosting the web app are available:
--   [Web Bluetooth **STM32WBA**](https://AppliBLE.github.io/Web_Bluetooth_App_WBA "https://AppliBLE.github.io/Web_Bluetooth_App_WBA").
--   [Web Bluetooth **STM32WB**](https://AppliBLE.github.io/Web_Bluetooth_App_WB "https://AppliBLE.github.io/Web_Bluetooth_App_WB").
+-   [Web Bluetooth® **STM32WBA**](https://AppliBLE.github.io/Web_Bluetooth_App_WBA "https://AppliBLE.github.io/Web_Bluetooth_App_WBA").
+-   [Web Bluetooth® **STM32WB**](https://AppliBLE.github.io/Web_Bluetooth_App_WB "https://AppliBLE.github.io/Web_Bluetooth_App_WB").
   
 No installation is required to use it this way.
+
 
 ***
 
