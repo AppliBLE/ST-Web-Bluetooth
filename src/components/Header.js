@@ -49,7 +49,7 @@ const Header = (props) => {
             })  
                 .then(device => { 
                     myDevice = device;
-                    myDevice.addEventListener('gattserverdisconnected', onDisconnected);
+                    myDevice.addEventListener('gattserverdisconnected', onDisconnected);     
                     return device.gatt.connect();
                 })
             
@@ -149,6 +149,7 @@ const Header = (props) => {
         
     }
     
+
     function getSupportedProperties(characteristic) {
     let supportedProperties = [];
     for (const p in characteristic.properties) {

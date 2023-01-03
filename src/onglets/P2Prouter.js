@@ -275,6 +275,7 @@ const P2Prouter = (props) => {
         let btnNotif = document.createElement("button");
         btnNotif.className = "btnNotifOFF"
         btnNotif.innerHTML = "OFF";
+        btnNotif.disabled = true;
         btnNotif.id = "notif" + index
         card.appendChild(btnNotif);
       }
